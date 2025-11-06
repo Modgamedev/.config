@@ -21,9 +21,15 @@ alias ls='lsd -A'
 alias ll='lsd -Al'
 alias lt='ls --tree'
 
-# Быстрый доступ к bashrc и .config
-alias bashrc='nvim ~/.bashrc && source ~/.bashrc'
+# Быстрый доступ к настройкам
+alias config-bashrc='nvim ~/.bashrc && source ~/.bashrc'
 alias config='cd ~/.config'
+alias config-lsd='nvim ~/.config/lsd/config.yaml'
+alias config-lsd-icons='nvim ~/.config/lsd/icons.yaml'
+alias config-lsd-colors='nvim ~/.config/lsd/colors.yaml'
+alias config-dircolors='nvim ~/.dircolors && eval $(dircolors ~/.dircolors)'
+
+
 
 # ======================================================
 #                     ИСТОРИЯ КОМАНД
