@@ -4,9 +4,6 @@ PS1='\[\e[90m\][\A] \[\e[1;32m\]\u\[\e[0;36m\]@\h \[\e[1;33m\]\w\[\e[0;33m\] $ \
 # Загружает настройки цветов для ls/lsd из файла ~/.dircolors
 eval "$(dircolors -b ~/.dircolors)"
 
-# Добавляем директорию с пользовательскими бинарниками
-export PATH="$HOME/.local/bin:$PATH"
-
 # Включаем автоматический переход в директории при вводе их имени
 shopt -s autocd
 
@@ -17,18 +14,24 @@ shopt -s autocd
 alias ..='cd ..'
 
 # Цветной ls через lsd
-alias ls='lsd -A'
-alias ll='lsd -Al'
+alias ls='lsd'
+alias la='lsd -A'
+alias ll='lsd -l'
+alias lla='lsd -Al'
 alias lt='ls --tree'
+
+# Понятныый cat через bat
+alias cat='bat'
 
 # Быстрый доступ к настройкам
 alias config-bashrc='nvim ~/.bashrc && source ~/.bashrc'
+alias config-bashprofile='nvim ~/.bash_profile && source ~/.bash_profile'
 alias config='cd ~/.config'
 alias config-lsd='nvim ~/.config/lsd/config.yaml'
 alias config-lsd-icons='nvim ~/.config/lsd/icons.yaml'
 alias config-lsd-colors='nvim ~/.config/lsd/colors.yaml'
 alias config-dircolors='nvim ~/.dircolors && eval $(dircolors ~/.dircolors)'
-
+alias config-foot='nvim ~/.config/foot/foot.ini'
 
 
 # ======================================================
