@@ -1,0 +1,16 @@
+# Установка темы. Выполнить `bat --list-themes` для просмотра всех тем.
+--theme="Visual Studio Dark+"
+
+# Использование курсивного текста в терминале. 
+# Не поддерживается во всех эмуляторах терминала (например, tmux по умолчанию):
+--italic-text=always
+
+# Отключение вывода с прокруткой (pager) для больших файлов
+#--paging=never
+
+# Настройка прокрутки мышью в tmux (только для less >= 551). Может отключить выделение текста, если не удерживать Shift.
+--pager="less --RAW-CONTROL-CHARS --quit-if-one-screen --mouse"
+
+# Привязка шаблонов файлов к языкам подсветки. Например: *.ino → C++, .ignore → Git Ignore
+#--map-syntax "*.ino:C++"
+#--map-syntax ".ignore:Git Ignore"
