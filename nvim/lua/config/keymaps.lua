@@ -17,3 +17,8 @@ map("n", "<leader>ы", ":w<CR>", opts)     -- Пробел + ы → сохран
 map("n", "<leader>q", ":q<CR>", opts)     -- Пробел + q → выйти (:q)
 map("n", "<leader>й", ":q<CR>", opts)     -- Пробел + й → выйти (:q)
 
+map("n", "<leader>l", ":Lazy<CR>", opts)  -- Пробел + l → открыть Lazy.nvim
+map("n", "<leader>д", ":Lazy<CR>", opts)  -- Пробел + д → открыть Lazy.nvim
+
+
+
