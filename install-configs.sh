@@ -37,6 +37,11 @@ mkdir -p "$CONFIG_DIR/foot" || { echo "❌ Не удалось создать п
 cp -rf "$SRC_DIR/foot/"* "$CONFIG_DIR/foot/" || { echo "❌ Ошибка при копировании foot конфига"; exit 1; }
 echo "✅ foot конфиг успешно установлен!"
 
+# Копируем конфиги nvim
+mkdir -p "$CONFIG_DIR/nvim" || { echo "❌ Не удалось создать папку $CONFIG_DIR/nvim"; exit 1; }
+cp -rf "$SRC_DIR/nvim/"* "$CONFIG_DIR/nvim/" || { echo "❌ Ошибка при копировании nvim конфигов"; exit 1; }
+echo "✅ nvim конфиги успешно установлены!"
+
 # Возвращаемся в домашнюю директорию
 cd "$HOME" || { echo "❌ Не удалось перейти в домашнюю директорию"; exit 1; }
 
