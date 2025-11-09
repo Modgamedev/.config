@@ -20,5 +20,9 @@ map("n", "<leader>й", ":q<CR>", opts)     -- Пробел + й → выйти (
 map("n", "<leader>l", ":Lazy<CR>", opts)  -- Пробел + l → открыть Lazy.nvim
 map("n", "<leader>д", ":Lazy<CR>", opts)  -- Пробел + д → открыть Lazy.nvim
 
+map("n", "<leader>e", ":Neotree toggle<CR>", opts) -- Пробел + e → открыть/закрыть Neo-tree
+map("n", "<leader>у", ":Neotree toggle<CR>", opts) -- Пробел + у → открыть/закрыть Neo-tree
+
+
 
 
