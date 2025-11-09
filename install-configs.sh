@@ -32,6 +32,11 @@ mkdir -p "$CONFIG_DIR/niri" || { echo "❌ Не удалось создать п
 cp -rf "$SRC_DIR/niri/"* "$CONFIG_DIR/niri/" || { echo "❌ Ошибка при копировании niri конфига"; exit 1; }
 echo "✅ niri конфиг успешно установлен!"
 
+# Копируем конфиг foot
+mkdir -p "$CONFIG_DIR/foot" || { echo "❌ Не удалось создать папку $CONFIG_DIR/foot"; exit 1; }
+cp -rf "$SRC_DIR/foot/"* "$CONFIG_DIR/foot/" || { echo "❌ Ошибка при копировании foot конфига"; exit 1; }
+echo "✅ foot конфиг успешно установлен!"
+
 # Возвращаемся в домашнюю директорию
 cd "$HOME" || { echo "❌ Не удалось перейти в домашнюю директорию"; exit 1; }
 
