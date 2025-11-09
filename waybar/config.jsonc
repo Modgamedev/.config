@@ -1,18 +1,52 @@
 {
-  "layer": "top",
-  "height": 40,
+// Общие настройки
+  "layer": "top",                        // Уровень наложения панели (поверх всех окон)
+  "position": "top",                      // Расположение панели (сверху)
+  "height": 40,                          // Высота панели (в пикселях)
+  "width": 0,                             // Ширина панели в пикселях (0 - автоматически)
+  "margin": "5 10 5 10",                  // Внешние отступы панели (верх право низ лево)
+  "spacing": 6,                          // Расстояние между модулями внутри секций (в пикселях)
+  "passthrough": false,                  // Можно кликать окна, которые находятся под панелью
+  "reload_style_on_change": true         // Hot-reload когда изменился любой CSS панели
 
-  "modules-left": ["custom/left"],
-  "modules-center": ["custom/center"],
-  "modules-right": ["custom/right"],
+// Расстановка модулей в секциях
+  "modules-left": ["custom/left", "custom/left2", "custom/left3"],
+  "modules-center": ["custom/center", "custom/center2", "custom/center3"],
+  "modules-right": ["custom/right", "custom/right2", "custom/right3"],
 
+  // Тестовые модули слева
   "custom/left": {
     "format": "🧭 LEFT"
+    "name": "left"       // имя для CSS
   },
+  "custom/left2": {
+    "format": "💨 LEFT2"
+  },
+  "custom/left3": {
+    "format": "🌟 LEFT3"
+  },
+
+  // Тестовые модули по центру
   "custom/center": {
-    "format": "⚙️  CENTER"
+    "format": "⚙️ CENTER"
+    "name": "center"       // имя для CSS
   },
+  "custom/center2": {
+    "format": "🔧 CENTER2"
+  },
+  "custom/center3": {
+    "format": "🔹 CENTER3"
+  },
+
+  // Тестовые модули справа
   "custom/right": {
     "format": "💡 RIGHT"
+    "name": "right"       // имя для CSS
+  },
+  "custom/right2": {
+    "format": "🔥 RIGHT2"
+  },
+  "custom/right3": {
+    "format": "🌈 RIGHT3"
   }
 }
