@@ -1,0 +1,39 @@
+{
+  // Основные параметры панели
+  "layer": "top",          // Слой панели: top или bottom
+  "position": "top",       // Позиция на экране
+  "modules-left": ["niri/workspaces"],   // Модули слева
+  "modules-center": ["custom/window"],   // Модули по центру
+  "modules-right": ["battery", "clock"], // Модули справа
+
+  // Модуль рабочих пространств Niri
+  "niri/workspaces": {
+    "all-outputs": true,   // Показывать все рабочие пространства на всех мониторах
+    "format": "{icon} {name}",  // Формат отображения: иконка + имя
+    "format-icons": {      // Иконки для каждого workspace
+      "1": "1️⃣",
+      "2": "2️⃣",
+      "3": "3️⃣",
+      "4": "4️⃣"
+    },
+    "disable-click": false,   // Можно кликать, чтобы переключить workspace
+    "current-only": false     // Показывать все workspace, а не только активный
+  },
+
+  // Модуль батареи
+  "battery": {
+    "format": "{capacity}% {icon}",        // Отображение заряда + иконка
+    "format-icons": ["","","","",""] // Иконки по уровню заряда
+  },
+
+  // Модуль часов
+  "clock": {
+    "format-alt": "{:%a, %d. %b  %H:%M}"  // Формат даты и времени
+  },
+
+  // Пользовательский модуль активного окна
+  "custom/window": {
+    "exec": "niri activewindow -j | jq -r '.name'", // Команда для получения имени окна
+    "interval": 1  // Обновление каждые 1 секунду
+  }
+}
