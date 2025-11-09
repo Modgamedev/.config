@@ -8,8 +8,5 @@ return {
       "nvim-tree/nvim-web-devicons", -- optional, but recommended
     },
     lazy = false, -- загружать сразу
-    config = function()
-      require("neo-tree").setup()
-    end,
   }
 }
