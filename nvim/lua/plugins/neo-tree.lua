@@ -18,8 +18,12 @@ return {
     -- Настройки внешнего вида компонентов
     default_component_configs = {
       container = {
-        enable_character_fade = true, -- края длинных файлов "затухают"
+        enable_character_fade = true, -- края названия длинных файлов "затухают"
       },
+    },
+    -- Настройки буфера обмена
+    clipboard = {
+      sync = "universal", -- копирование доступно во всех Neovim и в системе
     },
   },
 }
