@@ -12,4 +12,8 @@ local opts = { noremap = true, silent = true }
 vim.g.mapleader = " " -- Лидер = пробел
 
 map("n", "<leader>s", ":w<CR>", opts)     -- Пробел + s → сохранить (:w)
+map("n", "<leader>ы", ":w<CR>", opts)     -- Пробел + ы → сохранить (:w)
+
 map("n", "<leader>q", ":q<CR>", opts)     -- Пробел + q → выйти (:q)
+map("n", "<leader>й", ":q<CR>", opts)     -- Пробел + й → выйти (:q)
+
