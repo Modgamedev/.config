@@ -27,7 +27,7 @@ TEXT=$(echo "$WINDOWS_JSON" | jq -r --arg ws_id "$REAL_ID" --arg active_id "$ACT
           else "📄" end
         )
       }
-    | . + {display: (if .id == $active_id then "<span background=\"#88888880\" foreground=\"yellow\">\(.icon)</span>" else .icon end)}
+    | . + {display: (if .id == $active_id then "<span foreground=\"yellow\">\(.icon)</span>" else .icon end)}
   ]
   | sort_by(.pos)
   | map(.display)
