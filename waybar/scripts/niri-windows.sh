@@ -1,27 +1,36 @@
 #!/bin/bash
 
-# Кэшируем данные для производительности
-WORKSPACES_JSON=$(niri msg --json workspaces)
-WINDOWS_JSON=$(niri msg --json windows)
+windows_json=$(niri msg --json list-windows)
+active_ws=$(niri msg --json get-workspaces | jq -r '.[] | select(.active == true).id')
 
-# Получаем активный workspace и окно
-REAL_ID=$(echo "$WORKSPACES_JSON" | jq -r '.[] | select(.is_active == true) | .id')
-ACTIVE_WINDOW_ID=$(echo "$WINDOWS_JSON" | jq -r '.[] | select(.is_focused == true) | .id')
-
-# Формируем отсортированный список иконок
-TEXT=$(echo "$WINDOWS_JSON" | jq -r --arg ws_id "$REAL_ID" --arg active_id "$ACTIVE_WINDOW_ID" '
-.[] | select(.workspace_id == ($ws_id | tonumber)) | 
-{
-    pos: .layout.pos_in_scrolling_layout[0],
-    app: .app_id,
-    id: .id
+# Функция для выбора иконки по app_id
+get_icon() {
+  case "$1" in
+    firefox) echo "󰈹" ;;        # Firefox
+    code) echo "󰨞" ;;           # VS Code
+    foot) echo "" ;;           # Terminal
+    thunar) echo "" ;;         # File Manager
+    obsidian) echo "󰈙" ;;       # Obsidian
+    steam) echo "󰓓" ;;          # Steam
+    *) echo "󰋩" ;;              # generic icon
+  esac
 }
-| (if .app == "firefox" then "🌎"
-  elif .app == "foot" then "💻" 
-  else "📄" end) as $icon
-| (if (.id | tostring) == $active_id then "*\($icon)*" else "\($icon)" end) as $display
-| "\(.pos)|\($display)"
-' | sort -n -t '|' -k1 | cut -d'|' -f2 | tr -d '\n' | sed 's/ /* /g')
 
-# Выводим компактный JSON в ОДНУ строку
-jq -c -n --arg text "$TEXT" '{"text": $text, "class": "active-windows"}'
+# Собираем иконки для активного workspace
+icons=$(echo "$windows_json" | jq -r --arg ws "$active_ws" '
+  [.[] | select(.workspace == ($ws | tonumber)) | {app_id: .app_id, focused: .focused}] |
+  map(@base64)
+' | while read -r encoded; do
+  obj=$(echo "$encoded" | base64 --decode)
+  app_id=$(echo "$obj" | jq -r '.app_id // "unknown"')
+  focused=$(echo "$obj" | jq -r '.focused')
+  icon=$(get_icon "$app_id")
+
+  if [ "$focused" = "true" ]; then
+    echo "<span class=\"active-window\">$icon</span>"
+  else
+    echo "$icon"
+  fi
+done | tr '\n' ' ')
+
+echo "{\"text\": \"$icons\"}"
