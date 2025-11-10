@@ -34,7 +34,8 @@
     "format": "{text}",
     "signal": 10,
     "tooltip": false,
-    "escape": false
+    "escape": false,
+	"markup": "pango"
 },
 
 
