@@ -10,7 +10,7 @@
   "passthrough": false,                   // Можно кликать окна, которые находятся под панелью
   "reload_style_on_change": true,         // Hot-reload когда изменился любой CSS панели
 
-// Расстановка модулей в секциях
+// Расстановка модулей в баре
   "modules-left": ["custom/left", "custom/left2", "custom/left3"],
   "modules-center": ["custom/center", "custom/center2", "custom/center3"],
   "modules-right": ["custom/right", "custom/right2", "battery"],
@@ -59,14 +59,32 @@
 
 // Бар справа
 {
+// Общие настройки
     "layer": "top",                          // Уровень наложения панели (поверх всех окон)
     "position": "right",                     // Расположение панели (справа)
     "width": 40,                             // Ширина панели (в пикселях)
-    "height": 0,                             // Высота панели (в пикселях)
-    "margin": "0 0 0 0",
+    "height": 200,                             // Высота панели (в пикселях)
+    "margin": "0 20 0 0",
     "spacing": 6,
-    "modules-left": ["custom/rightbar"],
-    "custom/rightbar": { "format": "🖥 RB" }
-  }
+
+// Расстановка модулей в баре
+    "modules-center": ["niri/workspaces"],
+
+// Модули
+"niri/workspaces": {
+	"format": "{icon}",
+	"format-icons": {
+		// Named workspaces
+		// (you need to configure them in niri)
+		"browser": "",
+		"discord": "",
+		"chat": "<b></b>",
+
+		// Icons by state
+		"active": "",
+		"default": ""
+	}
+}
+}
 ]
 
