@@ -12,7 +12,7 @@
 
 // Расстановка модулей в баре
   "modules-left": ["custom/left", "custom/left2", "custom/left3"],
-  "modules-center": ["custom/center", "custom/center2", "custom/center3"],
+  "modules-center": ["custom/center", "niri/window", "custom/center3"],
   "modules-right": ["custom/right", "custom/right2", "battery"],
 
   // Тестовые модули слева
@@ -32,8 +32,12 @@
     "format": "⚙️ CENTER",
     "name": "center"       // имя для CSS
   },
-  "custom/center2": {
-    "format": "🔧 CENTER2"
+  "niri/window": {
+	"format": "{}",
+	"rewrite": {
+		"(.*) - Mozilla Firefox": "🌎 $1",
+		"(.*) - zsh": "> [$1]"
+	}
   },
   "custom/center3": {
     "format": "🔹 CENTER3"
