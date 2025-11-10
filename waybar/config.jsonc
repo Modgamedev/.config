@@ -13,7 +13,7 @@
 // Расстановка модулей в баре
   "modules-left": ["custom/left", "custom/left2", "custom/left3"],
   "modules-center": ["custom/active-windows"],
-  "modules-right": ["battery"],
+  "modules-right": ["niri/language", "battery"],
 
   // Тестовые модули слева
   "custom/left": {
@@ -38,7 +38,11 @@
 	"markup": "pango"
 },
 
-
+"niri/language": {
+  "format": "{}",
+  "format-en": "EN",
+  "format-ru": "РУ"
+},
 // Настройки батареи
   "battery": {
     "design-capacity": false,                      // Использовать текущую ёмкость, не проектную
