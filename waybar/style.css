@@ -9,27 +9,13 @@ window#waybar {
   border-bottom: 2px solid #89b4fa;
 }
 
-#custom-left,
-#custom-center,
-#custom-right {
-  padding: 0 20px;
+#custom-active-windows {
+  padding: 0 8px;
+  font-family: "JetBrains Mono", monospace;
 }
 
-/* Модули слева */
-.left {
-    color: #ff5555;        /* красный */
-    font-weight: bold;
+#custom-active-windows .active-window {
+  background: rgba(100, 150, 255, 0.3);
+  border-radius: 6px;
+  padding: 2px 6px;
 }
-
-/* Центральные модули */
-.center {
-    color: #50fa7b;        /* зелёный */
-    font-style: italic;
-}
-
-/* Модули справа */
-.right {
-    color: #6272a4;        /* синий */
-    text-decoration: underline;
-}
-
