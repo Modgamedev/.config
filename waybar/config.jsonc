@@ -12,7 +12,7 @@
 // Расстановка модулей в секциях
   "modules-left": ["custom/left", "custom/left2", "custom/left3"],
   "modules-center": ["custom/center", "custom/center2", "custom/center3"],
-  "modules-right": ["custom/right", "custom/right2", "custom/right3"],
+  "modules-right": ["custom/right", "custom/right2", "battery"],
 
   // Тестовые модули слева
   "custom/left": {
@@ -51,6 +51,7 @@
     "design-capacity": false,                      // Использовать текущую ёмкость, не проектную
     "interval": 60,                                // Частота обновления в секундах
     "format": "{capacity}% {icon}",                // Отображение: заряд в % и иконка
-    "format-icons": ["", "", "", "", ""],     // 
+    "format-icons": ["", "", "", "", ""],     // Иконки батареи для разных уровней
+    "tooltip-format": "Осталось: {timeTo} ({capacity}%)"  // Текст всплывающей подсказки при наведении
   }
 }
