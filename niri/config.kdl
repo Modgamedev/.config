@@ -151,6 +151,9 @@ spawn-at-startup "waybar"
 // Настройки запуска команд через shell (можно использовать сложные команды, скрипты, переменные, пайпы).
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
 
+// Демон событий для Waybar
+spawn-sh-at-startup "~/.config/waybar/scripts/niri-event-handler.sh"
+
 hotkey-overlay {
     skip-at-startup  // Отключить всплывающее окно с горячими клавишами при старте
 }
