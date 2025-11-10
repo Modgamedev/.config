@@ -16,8 +16,9 @@ window#waybar {
   color: #00FFFF;               /* Цвет неактивных окон */
 }
 
+#language,
 #battery {
-    font-family: "Iosevka NF";
+    font-family: "Iosevka NF Light";
     font-size: 30px;
     padding-right: 20px;
 }
