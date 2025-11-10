@@ -9,10 +9,17 @@ window#waybar {
   border-bottom: 2px solid #89b4fa;
 }
 
+/* Иконки окон в рабочем пространстве */
 #custom-active-windows {
-  padding: 0 8px;
-  font-size: 20px;          
-  color: #dddddd;           
+  font-family: "Iosevka NFP";   /* Шрифт иконок */
+  font-size: 30px;              /* Размер иконок */
+  color: #00FFFF;               /* Цвет неактивных окон */
+}
+
+#battery {
+    font-family: "Iosevka NF";
+    font-size: 30px;
+    padding-right: 20px;
 }
 
 
