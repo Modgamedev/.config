@@ -9,11 +9,10 @@ window#waybar {
   border-bottom: 2px solid #89b4fa;
 }
 
-// Окна в рабочем пространстве
 #custom-active-windows {
   padding: 0 8px;
-  font-size: 20px;          // размер иконок
-  color: #dddddd;           // цвет неактивных окон
+  font-size: 20px;          
+  color: #dddddd;           
 }
 
 
