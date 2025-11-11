@@ -1,0 +1,16 @@
+{
+// Общие настройки
+  "layer": "top",
+  "position": "right",
+  "width": 50,
+  "height": 200,
+  "margin": "0 20 0 0",
+  "spacing": 6,
+  "exclusive": false,
+
+// Подключаем модули бокового бара
+  "include": ["~/.config/waybar/rightbar/right_modules.jsonc"],
+
+// Расположение модулей
+  "modules-center": ["niri/workspaces"]
+}
