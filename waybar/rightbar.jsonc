@@ -1,0 +1,30 @@
+{
+// Общие настройки
+    "layer": "top",                          // Уровень наложения панели (поверх всех окон)
+    "position": "right",                     // Расположение панели (справа)
+    "width": 50,                             // Ширина панели (в пикселях)
+    "height": 200,                             // Высота панели (в пикселях)
+    "margin": "0 20 0 0",  	 	  	 	 	  // Внешние отступы панели (верх право низ лево)
+    "spacing": 6,	 	  	 	 	 	  	  // Расстояние между модулями внутри секций (в пикселях)
+    "exclusive": false,                      // Не резервирует место, окна могут заходить на бар
+
+
+// Расстановка модулей в баре
+    "modules-center": ["niri/workspaces"],
+
+// Модули
+"niri/workspaces": {
+	"format": "{icon}",
+	"format-icons": {
+		// Named workspaces
+		// (you need to configure them in niri)
+		"browser": "",
+		"discord": "",
+		"chat": "<b></b>",
+
+		// Icons by state
+		"active": "",
+		"default": ""
+	}
+}
+}
