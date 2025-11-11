@@ -3,17 +3,17 @@
 // Общие настройки
   "layer": "top",                         // Уровень наложения панели (поверх всех окон)
   "position": "top",                      // Расположение панели (сверху)
-  "height": 40,                           // Высота панели (в пикселях)
+  "height": 50,                           // Высота панели (в пикселях)
   "width": 0,                             // Ширина панели в пикселях (0 - автоматически)
   "margin": "0 0 0 0",                    // Внешние отступы панели (верх право низ лево)
-  "spacing": 6,                           // Расстояние между модулями внутри секций (в пикселях)
+  "spacing": 0,                           // Расстояние между модулями внутри секций (в пикселях)
   "passthrough": false,                   // Можно кликать окна, которые находятся под панелью
   "reload_style_on_change": true,         // Hot-reload когда изменился любой CSS панели
 
 // Расстановка модулей в баре
-  "modules-left": [],
+  "modules-left": ["cpu", "memory", "temperature", "disk", "battery", "network"],
   "modules-center": ["custom/active-windows"],
-  "modules-right": ["niri/language", "network", "battery"],
+  "modules-right": ["niri/language"],
 
 
 "custom/active-windows": {
@@ -27,7 +27,10 @@
 },
 "network": {
     "format": "{icon}",
-    "format-wifi": "{icon} {signalStrength}%", 
+    "format-alt": "{icon}  {bandwidthDownBytes}  {bandwidthUpBytes}", 
+    "format-wifi": "{icon}  {signalStrength}%",
+    "format-ethernet": "󰈀",
+    "format-linked": "󰤬",                // Когда нет ip
     "format-disconnected": "󰤮",
     "format-disabled": "󰤫",          // Интерфейс выключен
     "format-icons": [
@@ -39,23 +42,71 @@
     ],
     "interval": 30,
     "tooltip": true,
-    "tooltip-format-wifi": "WiFi: {essid} ({frequency} GHz)\n󰩟 {ipaddr}\n\n {bandwidthDownBytes}  {bandwidthUpBytes}",
-    "tooltip-format-disconnected": "WiFi isconnected",
-    "tooltip-format-disabled": "WiFi disabled",
-    "on-click": ""
+    "tooltip-format": "WiFi: {essid} ({frequency} GHz)\n\nИмя интерфейса: {ifname}\n󰩟  {ipaddr}\nШлюз: {gwaddr}\nМаска IPv4: {netmask}(/{cidr})\n\n  {bandwidthDownBytes}   {bandwidthUpBytes}",
+    "tooltip-format-wifi": "WiFi: {essid} ({frequency} GHz)\n\nИмя интерфейса: {ifname}\n󰩟  {ipaddr}\nШлюз: {gwaddr}\nМаска IPv4: {netmask}(/{cidr})\n\n  {bandwidthDownBytes}   {bandwidthUpBytes}",
+    "tooltip-format-disconnected": "WiFi disconnected",
+    "tooltip-format-disabled": "WiFi disabled"
 },
 "niri/language": {
   "format": "{}",
   "format-en": "EN",
   "format-ru": "РУ"
 },
-// Настройки батареи
+// Показатель CPU
+"cpu": {
+    "interval": 10,
+    "format": "  {usage}%",
+      "states": {
+	"medium": 50,
+        "high": 70,
+        "critical": 90
+    },
+    "on-click": "",
+    "tooltip": false
+},
+// Показатель RAM
+"memory": {
+    "interval": 10,
+    "format": "  {percentage}%",
+    "states": {
+	"medium": 50,
+        "high": 70,
+        "critical": 90
+    },
+    "on-click": "",
+    "tooltip": true,
+    "tooltip-format": "Total RAM: {total} GiB\nUsed: {used} GiB\n\nTotal SWAP: {swapTotal} GiB\nUsed SWAP: {swapUsed} GiB"
+},
+// Показатели температур
+ "temperature": {
+    "interval": 10,
+    "thermal-zone": 22,
+    "critical-threshold": 70,
+    "format-critical": " {temperatureC}°C",
+    "format": " {temperatureC}°C"
+},
+"disk": {
+	"interval": 60,
+	"format": "󰋊 {specific_used:.0f}GB",
+	"format-alt": "󰋊 {percentage_used}%",
+	"unit": "GB",
+	"tooltip": true,
+	"tooltip-format": "Размер диска:            {specific_total:.1f}GB\nСвободно:         {specific_free:.1f}GB({percentage_free}%)\nИспользовано:        {specific_used:.1f}GB({percentage_used}%)"
+},
+// Показатели батареи
   "battery": {
     "design-capacity": false,                      // Использовать текущую ёмкость, не проектную
-    "interval": 60,                                // Частота обновления в секундах
-    "format": "{capacity}% {icon}",                // Отображение: заряд в % и иконка
+    "format": "{icon}  {capacity}%",		   // Отображение: заряд в % и иконка
+    "format-alt": "{icon}  {power}W",
+    "format-charging": "󰚥 {capacity}%",
+    "states": {
+	"critical": 20,
+	"high": 35,
+	"medium": 50
+    },
     "format-icons": ["", "", "", "", ""],     // Иконки батареи для разных уровней
-    "tooltip-format": "Осталось: {timeTo} ({capacity}%)"  // Текст всплывающей подсказки при наведении
+    "tooltip-format-charging": "До полной зарядки: {time}\nЗдоровье: {health}%\nЦиклов: {cycles}",
+    "tooltip-format-discharging": "Потребляет: {power}W\nОсталось работы: {time}\nЗдоровье: {health}%\nЦиклов: {cycles}"
   }
 },
 
@@ -64,7 +115,7 @@
 // Общие настройки
     "layer": "top",                          // Уровень наложения панели (поверх всех окон)
     "position": "right",                     // Расположение панели (справа)
-    "width": 40,                             // Ширина панели (в пикселях)
+    "width": 50,                             // Ширина панели (в пикселях)
     "height": 200,                             // Высота панели (в пикселях)
     "margin": "0 20 0 0",  	 	  	 	 	  // Внешние отступы панели (верх право низ лево)
     "spacing": 6,	 	  	 	 	 	  	  // Расстояние между модулями внутри секций (в пикселях)
