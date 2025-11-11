@@ -10,7 +10,10 @@ window#waybar {
   color: #00FFFF;               /* Цвет неактивных окон */
 }
 
-
+#cpu,
+#disk,
+#memory,
+#temperature,
 #battery,
 #network,
 #language {
@@ -20,11 +23,27 @@ window#waybar {
     padding-right: 20px;
 }
 
+#cpu.medium,
+#battery.medium,
+#network.disconnected,
+#memory.medium { color: yellow; }
+
+#cpu.high,
+#battery.high,
+#memory.high { color: orange; }
+
+#cpu.critical,
+#battery.high,
+#temperature.critical,
+#network.disabled,
+#memory.critical { color: red; }
+
+
+
 tooltip * {
     background-color: #3b4252;
     font-size: 40px;
 }
-
 
 
 
