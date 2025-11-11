@@ -1,14 +1,18 @@
 {
-  "layer": "top",
-  "position": "top",
-  "height": 50,
-  "margin": "0 0 0 0",
-  "spacing": 0,
-  "reload_style_on_change": true,
+// Общие настройки
+  "layer": "top",                         // Уровень наложения панели (поверх всех окон)
+  "position": "top",                      // Расположение панели (сверху)
+  "height": 50,                           // Высота панели (в пикселях)
+  "width": 0,                             // Ширина панели в пикселях (0 - автоматически)
+  "margin": "0 0 0 0",                    // Внешние отступы панели (верх право низ лево)
+  "spacing": 0,                           // Расстояние между модулями внутри секций (в пикселях)
+  "passthrough": false,                   // Можно кликать окна, которые находятся под панелью
+  "reload_style_on_change": true,         // Hot-reload когда изменился любой CSS панели
 
-  // Подключаем модули верхнего бара
+// Подключаем модули верхнего бара
   "include": ["~/.config/waybar/topbar/topbar_modules.jsonc"],
 
+// Расстановка модулей в баре
   "modules-left": ["cpu", "memory", "temperature", "disk", "battery", "network"],
   "modules-center": ["custom/active-windows"],
   "modules-right": ["niri/language"]
