@@ -11,23 +11,11 @@
   "reload_style_on_change": true,         // Hot-reload когда изменился любой CSS панели
 
 // Расстановка модулей в баре
-  "modules-left": ["custom/left", "custom/left2", "custom/left3"],
+  "modules-left": [],
   "modules-center": ["custom/active-windows"],
-  "modules-right": ["niri/language", "battery"],
+  "modules-right": ["niri/language", "network", "battery"],
 
-  // Тестовые модули слева
-  "custom/left": {
-    "format": "🧭 LEFT",
-    "name": "left"       // имя для CSS
-  },
-  "custom/left2": {
-    "format": "💨 LEFT2"
-  },
-  "custom/left3": {
-    "format": "🌟 LEFT3"
-  },
 
-  // Тестовые модули по центру
 "custom/active-windows": {
     "exec": "~/.config/waybar/scripts/niri-windows.sh",
     "return-type": "json",
@@ -35,9 +23,27 @@
     "signal": 10,
     "tooltip": false,
     "escape": false,
-	"markup": "pango"
+    "markup": "pango"
 },
-
+"network": {
+    "format": "{icon}",
+    "format-wifi": "{icon} {signalStrength}%", 
+    "format-disconnected": "󰤮",
+    "format-disabled": "󰤫",          // Интерфейс выключен
+    "format-icons": [
+        "󰤮",        // отключено
+        "󰤟",        // 0-25%    (слабый)
+        "󰤢",        // 25-50%   (средний)
+        "󰤥",        // 50-75%   (хороший)
+        "󰤨"         // 75-100%  (отличный)
+    ],
+    "interval": 30,
+    "tooltip": true,
+    "tooltip-format-wifi": "WiFi: {essid} ({frequency} GHz)\n󰩟 {ipaddr}\n\n {bandwidthDownBytes}  {bandwidthUpBytes}",
+    "tooltip-format-disconnected": "WiFi isconnected",
+    "tooltip-format-disabled": "WiFi disabled",
+    "on-click": ""
+},
 "niri/language": {
   "format": "{}",
   "format-en": "EN",
@@ -85,4 +91,3 @@
 }
 }
 ]
-
